@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		280E398704687DFB881AC7A8 /* Pods_fullstack_social_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCCF3A9FBEF0CA0B78E11855 /* Pods_fullstack_social_ios.framework */; };
-		CEE44818239F4767006F7B93 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE44817239F4767006F7B93 /* Post.swift */; };
-		CEE4481A239F4783006F7B93 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE44819239F4783006F7B93 /* User.swift */; };
+		CEE44818239F4767006F7B93 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE44817239F4767006F7B93 /* PostModel.swift */; };
+		CEE4481A239F4783006F7B93 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE44819239F4783006F7B93 /* UserModel.swift */; };
+		CEE4481C239F4F58006F7B93 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE4481B239F4F58006F7B93 /* Post.swift */; };
+		CEE4481E239F4FE8006F7B93 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE4481D239F4FE8006F7B93 /* User.swift */; };
+		CEE44821239F5BDE006F7B93 /* RefreshTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE44820239F5BDE006F7B93 /* RefreshTableView.swift */; };
 		F753813023525F8D00091E87 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F753812F23525F8D00091E87 /* HomeController.swift */; };
 		F75381322352626B00091E87 /* LoginInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75381312352626A00091E87 /* LoginInController.swift */; };
 		F796C7282352A46100060F24 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F796C7272352A46100060F24 /* RegisterController.swift */; };
@@ -41,8 +44,11 @@
 /* Begin PBXFileReference section */
 		096738F8499AC580E5AE3DB7 /* Pods-fullstack_social_ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fullstack_social_ios.debug.xcconfig"; path = "Target Support Files/Pods-fullstack_social_ios/Pods-fullstack_social_ios.debug.xcconfig"; sourceTree = "<group>"; };
 		4CCAFEE7E1A8D3ECE7ED089A /* Pods-fullstack_social_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fullstack_social_ios.release.xcconfig"; path = "Target Support Files/Pods-fullstack_social_ios/Pods-fullstack_social_ios.release.xcconfig"; sourceTree = "<group>"; };
-		CEE44817239F4767006F7B93 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		CEE44819239F4783006F7B93 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CEE44817239F4767006F7B93 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		CEE44819239F4783006F7B93 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		CEE4481B239F4F58006F7B93 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CEE4481D239F4FE8006F7B93 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CEE44820239F5BDE006F7B93 /* RefreshTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTableView.swift; sourceTree = "<group>"; };
 		DCCF3A9FBEF0CA0B78E11855 /* Pods_fullstack_social_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fullstack_social_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F753812F23525F8D00091E87 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		F75381312352626A00091E87 /* LoginInController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInController.swift; sourceTree = "<group>"; };
@@ -95,6 +101,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CEE4481F239F5BC4006F7B93 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				CEE44820239F5BDE006F7B93 /* RefreshTableView.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
 		D7C3A0F16DA81E2AF3DDF518 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -114,8 +128,11 @@
 		F753812C23525F0D00091E87 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				CEE44817239F4767006F7B93 /* Post.swift */,
-				CEE44819239F4783006F7B93 /* User.swift */,
+				CEE44817239F4767006F7B93 /* PostModel.swift */,
+				CEE4481B239F4F58006F7B93 /* Post.swift */,
+				CEE44819239F4783006F7B93 /* UserModel.swift */,
+				CEE4481D239F4FE8006F7B93 /* User.swift */,
+				CEE4481F239F5BC4006F7B93 /* Delegate */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,10 +398,13 @@
 			files = (
 				F796C7282352A46100060F24 /* RegisterController.swift in Sources */,
 				F753813023525F8D00091E87 /* HomeController.swift in Sources */,
-				CEE4481A239F4783006F7B93 /* User.swift in Sources */,
+				CEE44821239F5BDE006F7B93 /* RefreshTableView.swift in Sources */,
+				CEE4481A239F4783006F7B93 /* UserModel.swift in Sources */,
+				CEE4481C239F4F58006F7B93 /* Post.swift in Sources */,
+				CEE4481E239F4FE8006F7B93 /* User.swift in Sources */,
 				F75381322352626B00091E87 /* LoginInController.swift in Sources */,
 				F7B53B0823525A0E00A99D4E /* AppDelegate.swift in Sources */,
-				CEE44818239F4767006F7B93 /* Post.swift in Sources */,
+				CEE44818239F4767006F7B93 /* PostModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

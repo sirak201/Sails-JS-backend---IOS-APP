@@ -31,46 +31,7 @@ class RegisterController: LBTAFormController {
     
     lazy var goBackButton = UIButton(title: "Go back to login.", titleColor: .black, font: .systemFont(ofSize: 16), target: self, action: #selector(goToRegister))
     
-    @objc fileprivate func goToRegister() {
-        navigationController?.popViewController(animated: true)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        handleSignup()
-        return true
-    }
-    
-    @objc fileprivate func handleSignup() {
-       
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Registering"
-        hud.show(in: view)
-        
-        
-     
-        guard let fullName = fullNameTextField.text else { return }
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        
-        let url = "http://localhost:1337/api/v1/entrance/signup"
-        let params = ["fullName": fullName, "emailAddress": email, "password": password]
-        
-        Alamofire.request(url, method: .post, parameters: params)
-                 .validate(statusCode: 200..<300)
-            .responseData { (resData) in
-                
-                
-                hud.dismiss()
-                if let _ = resData.error {
-                    self.errorLabel.isHidden = false
-                    return
-                }
-                
-                self.dismiss(animated: true)
-        }
-    }
-    
+    // MARK: Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -96,5 +57,38 @@ class RegisterController: LBTAFormController {
         
         formContainerStackView.addArrangedSubview(formView)
     }
+    
+    @objc fileprivate func goToRegister() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        handleSignup()
+        return true
+    }
+    
+    @objc fileprivate func handleSignup() {
+       
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Registering"
+        hud.show(in: view)
+        guard let fullName = fullNameTextField.text else { return }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        let user = User()
+        user.registerNewUser(email: email, password: password, fullName: fullName) { (res) in
+            switch res {
+                case .success(_):
+                    self.dismiss(animated: true)
+                    return
+                case .failure(_):
+                    self.errorLabel.isHidden = false
+                    return
+            }
+        }
+    }
+    
+
 }
 

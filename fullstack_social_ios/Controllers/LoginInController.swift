@@ -32,25 +32,7 @@ class LoginController: LBTAFormController {
                 navigationController?.pushViewController(controller, animated: true)
     }
     
-    @objc fileprivate func handleLogin() {
-        let hud = JGProgressHUD(style: .dark)
-        hud.textLabel.text = "Logging in"
-        hud.show(in: view)
-        
-        guard let email = emailTextField.text else { return }
-        guard let password = passwordTextField.text else { return }
-        
-        errorLabel.isHidden = true
-        let prams = [ "emailAddress" : email, "password": password ]
-        guard let url = URL(string: "http://localhost:1337/api/v1/entrance/login") else {return}
-        
-        Alamofire.request(url, method: .put, parameters: prams, encoding: URLEncoding()).responseData { (dataResponde) in
-            
-            hud.dismiss()
-            self.dismiss(animated: true)
-        }
-    }
-    
+    //MARK: LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .init(white: 0.95, alpha: 1)
@@ -78,5 +60,30 @@ class LoginController: LBTAFormController {
         formContainerStackView.padBottom(-24)
         formContainerStackView.addArrangedSubview(formView)
     }
+    
+    //MARK: Functions
+    @objc fileprivate func handleLogin() {
+        let hud = JGProgressHUD(style: .dark)
+        hud.textLabel.text = "Logging in"
+        hud.show(in: view)
+        
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        errorLabel.isHidden = true
+        let user = User()
+        
+        user.signIn(email: email, password: password) { (res) in
+            switch res {
+                case .success(_):
+                     hud.dismiss()
+                    self.dismiss(animated: true)
+                case .failure(_):
+                    self.errorLabel.isHidden = false
+               
+            }
+        }
+    }
+
 }
 
